@@ -110,16 +110,16 @@ function AppContent() {
           </div>
         ) : (
           <div
-            className="bg-white dark:bg-slate-800 p-3 md:p-4 rounded-xl md:rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700/50 animate-in fade-in slide-in-from-bottom-4 duration-500 flex flex-col"
+            className="bg-white dark:bg-slate-800 p-1 md:p-2 rounded-xl md:rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700/50 animate-in fade-in slide-in-from-bottom-4 duration-500 flex flex-col"
             style={{ height: 'calc(100vh - 125px)' }}
           >
-            <div className="flex flex-col md:flex-row gap-2 justify-between items-start md:items-center mb-3 md:mb-4 shrink-0">
-              <h2 className="text-sm md:text-base font-black text-slate-800 dark:text-white tracking-tight">
+            <div className="flex flex-col md:flex-row gap-1 justify-between items-start md:items-center mb-1 md:mb-2 px-2 pt-1 shrink-0">
+              <h2 className="text-[10px] md:text-sm font-black text-slate-800 dark:text-white tracking-tight">
                 {new Date().getFullYear()} Achievement Matrix
               </h2>
               <ColorLegend />
             </div>
-            <div className="flex-1 flex items-center justify-center min-h-0">
+            <div className="flex-1 flex items-center justify-center min-h-0 overflow-hidden">
               <YearGrid selectedDate={selectedDate} onDateSelect={handleDateSelect} />
             </div>
           </div>

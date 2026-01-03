@@ -37,7 +37,7 @@ export const YearGrid = ({ selectedDate, onDateSelect }) => {
     return (
         <div className="w-full flex items-center justify-center">
             <div
-                className="grid gap-px sm:gap-0.5 md:gap-1 mx-auto w-fit max-w-full"
+                className="grid gap-0.5 sm:gap-0.5 md:gap-1 mx-auto w-fit max-w-full overflow-visible"
                 style={{
                     gridTemplateColumns: 'repeat(21, minmax(0, 1fr))',
                 }}
@@ -53,14 +53,14 @@ export const YearGrid = ({ selectedDate, onDateSelect }) => {
                             onClick={() => !isFuture && onDateSelect(day)}
                             title={format(day, 'MMM d, yyyy')}
                             className={clsx(
-                                "aspect-square w-[3.2vw] sm:w-[2.8vw] md:w-[2.5vw] lg:w-[2.3vh] max-w-[24px] min-w-[10px] rounded-[1px] sm:rounded-sm transition-colors duration-200 relative flex items-center justify-center",
+                                "aspect-square w-[3.4vw] sm:w-[3vw] md:w-[2.8vw] lg:w-[2.8vh] max-w-[30px] min-w-[12px] rounded-[1px] sm:rounded-sm transition-colors duration-200 relative flex items-center justify-center",
                                 !isFuture ? "cursor-pointer" : "cursor-default",
                                 getIntensityColor(day),
                                 (isToday || isSelected) && "ring-1 sm:ring-2 ring-slate-400 dark:ring-slate-500 z-10"
                             )}
                         >
                             <span className={clsx(
-                                "text-[6px] sm:text-[8px] md:text-[9px] font-bold select-none",
+                                "text-[7px] sm:text-[9px] md:text-[10px] font-bold select-none",
                                 isFuture ? "text-slate-400 dark:text-slate-600" : "text-slate-700 dark:text-slate-200",
                                 (isToday || isSelected) && "text-slate-900 dark:text-white font-black"
                             )}>
