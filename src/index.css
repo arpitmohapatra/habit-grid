@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    @apply antialiased text-gray-900 dark:text-slate-100 bg-slate-50 dark:bg-slate-900 min-h-screen text-base;
+  }
+}
+
+@layer utilities {
+
+  /* Custom scrollbar styles */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply rounded-full;
+  }
+
+  .scrollbar-thumb-slate-300::-webkit-scrollbar-thumb {
+    @apply bg-slate-300;
+  }
+
+  .dark .scrollbar-thumb-slate-600::-webkit-scrollbar-thumb {
+    @apply bg-slate-600;
+  }
+
+  .scrollbar-track-transparent::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .custom-grid-scroll {
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+  }
+
+  /* Hide scrollbar for specific elements */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
