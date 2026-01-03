@@ -15,6 +15,61 @@ function AppContent() {
   const { darkMode, setDarkMode, currentTheme, setTheme, allThemes, currentThemeKey } = useTheme();
   const { appConfig } = useSettings();
   const [showThemePicker, setShowThemePicker] = useState(false);
+  const [updateAvailable, setUpdateAvailable] = useState(false);
+
+  // Aggressive Update Logic for iOS/PWA
+  useEffect(() => {
+    const checkUpdate = async () => {
+      if ('serviceWorker' in navigator) {
+        try {
+          const registration = await navigator.serviceWorker.getRegistration();
+          if (registration) {
+            await registration.update();
+            if (registration.waiting) {
+              setUpdateAvailable(true);
+            }
+          }
+        } catch (err) {
+          console.log('SW update check failed:', err);
+        }
+      }
+    };
+
+    // Check on mount
+    checkUpdate();
+
+    // Check when app comes to foreground
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        checkUpdate();
+      }
+    };
+
+    window.addEventListener('visibilitychange', handleVisibilityChange);
+
+    // Periodic check every hour
+    const interval = setInterval(checkUpdate, 60 * 60 * 1000);
+
+    return () => {
+      window.removeEventListener('visibilitychange', handleVisibilityChange);
+      clearInterval(interval);
+    };
+  }, []);
+
+  const handleUpdate = () => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistration().then(reg => {
+        if (reg && reg.waiting) {
+          reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+          window.location.reload();
+        } else {
+          window.location.reload();
+        }
+      });
+    } else {
+      window.location.reload();
+    }
+  };
 
   const handleDateSelect = (date) => {
     setSelectedDate(date);
@@ -62,6 +117,15 @@ function AppContent() {
 
         {/* Top Actions */}
         <div className="flex items-center gap-1 md:gap-2">
+          {updateAvailable && (
+            <button
+              onClick={handleUpdate}
+              className={`${currentTheme.intensity.bg} text-white text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1 animate-pulse shadow-lg`}
+            >
+              <Activity size={12} strokeWidth={3} />
+              <span>Update!</span>
+            </button>
+          )}
           <div className="relative">
             <button
               onClick={() => setShowThemePicker(!showThemePicker)}
