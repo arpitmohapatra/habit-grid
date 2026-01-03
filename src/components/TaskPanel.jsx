@@ -37,22 +37,23 @@ export const TaskPanel = ({ selectedDate }) => {
     return (
         <div className="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col h-full overflow-hidden">
             {/* Header */}
-            <div className="p-4 border-b border-slate-100 dark:border-slate-700 flex flex-col sm:flex-row justify-between items-start sm:items-center bg-slate-50/50 dark:bg-slate-800/50 gap-4">
+            <div className="p-4 border-b border-slate-100 dark:border-slate-700 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50 gap-2">
                 <div className="min-w-0 flex-1">
-                    <h2 className="font-semibold text-slate-800 dark:text-white flex items-center gap-2 truncate">
-                        <Calendar size={18} className={currentTheme.intensity.text} />
-                        <span className="truncate">{format(selectedDate, 'MMMM d, yyyy')}</span>
+                    <h2 className="font-bold text-slate-800 dark:text-white flex items-center gap-1.5 text-xs sm:text-sm md:text-base">
+                        <Calendar size={16} className={`${currentTheme.intensity.text} shrink-0`} />
+                        <span className="truncate">{format(selectedDate, 'MMM d, yyyy')}</span>
                     </h2>
-                    <p className="text-xs text-slate-500 mt-1">
-                        {activeTasks.length} {activeTasks.length === 1 ? 'task' : 'tasks'} for today
+                    <p className="text-[10px] text-slate-500 mt-0.5 whitespace-nowrap">
+                        {activeTasks.length} {activeTasks.length === 1 ? 'task' : 'tasks'}
                     </p>
                 </div>
                 <button
                     onClick={openNewTaskModal}
-                    className={`${currentTheme.intensity.bg} hover:opacity-90 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-all shadow-sm flex items-center gap-1 active:scale-95 shrink-0`}
+                    className={`${currentTheme.intensity.bg} hover:opacity-90 text-white p-1.5 sm:px-3 sm:py-1.5 rounded-lg text-xs font-bold transition-all shadow-sm flex items-center gap-1 active:scale-95 shrink-0`}
                 >
                     <Plus size={16} />
-                    <span>Add Task</span>
+                    <span className="hidden sm:inline">Add Task</span>
+                    <span className="sm:hidden">Add</span>
                 </button>
             </div>
 
