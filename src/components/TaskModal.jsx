@@ -94,7 +94,7 @@ export const TaskModal = ({ isOpen, onClose, onSave, initialData }) => {
                             <input
                                 type="date"
                                 required
-                                className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-slate-500 outline-none bg-transparent dark:text-white"
+                                className="w-full min-w-0 box-border px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-slate-500 outline-none bg-transparent dark:text-white"
                                 value={formData.startDate}
                                 onChange={e => setFormData({ ...formData, startDate: e.target.value })}
                             />
