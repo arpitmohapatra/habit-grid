@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { HabitProvider } from './context/HabitContext';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { SettingsProvider, useSettings } from './context/SettingsContext';
