@@ -37,11 +37,11 @@ export const TaskPanel = ({ selectedDate }) => {
     return (
         <div className="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col h-full overflow-hidden">
             {/* Header */}
-            <div className="p-4 border-b border-slate-100 dark:border-slate-700 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50">
-                <div>
-                    <h2 className="font-semibold text-slate-800 dark:text-white flex items-center gap-2">
+            <div className="p-4 border-b border-slate-100 dark:border-slate-700 flex flex-col sm:flex-row justify-between items-start sm:items-center bg-slate-50/50 dark:bg-slate-800/50 gap-4">
+                <div className="min-w-0 flex-1">
+                    <h2 className="font-semibold text-slate-800 dark:text-white flex items-center gap-2 truncate">
                         <Calendar size={18} className={currentTheme.intensity.text} />
-                        {format(selectedDate, 'MMMM d, yyyy')}
+                        <span className="truncate">{format(selectedDate, 'MMMM d, yyyy')}</span>
                     </h2>
                     <p className="text-xs text-slate-500 mt-1">
                         {activeTasks.length} {activeTasks.length === 1 ? 'task' : 'tasks'} for today
@@ -49,10 +49,10 @@ export const TaskPanel = ({ selectedDate }) => {
                 </div>
                 <button
                     onClick={openNewTaskModal}
-                    className={`${currentTheme.intensity.bg} hover:opacity-90 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-all shadow-sm flex items-center gap-1 active:scale-95`}
+                    className={`${currentTheme.intensity.bg} hover:opacity-90 text-white px-3 py-1.5 rounded-lg text-sm font-medium transition-all shadow-sm flex items-center gap-1 active:scale-95 shrink-0`}
                 >
                     <Plus size={16} />
-                    <span>Add</span>
+                    <span>Add Task</span>
                 </button>
             </div>
 

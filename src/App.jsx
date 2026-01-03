@@ -26,7 +26,7 @@ function AppContent() {
       {/* Optimized Header - Ultra compact for web */}
       <header className={`sticky top-0 z-40 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-700/50 px-4 py-1.5 md:px-8 md:py-2 flex justify-between items-center`}>
         <div className="flex flex-col">
-          <h1 className="text-lg md:text-xl font-black text-slate-800 dark:text-white tracking-tight leading-none">
+          <h1 className="text-lg md:text-xl font-black text-slate-800 dark:text-white tracking-tight leading-none truncate max-w-[150px] sm:max-w-none">
             {appConfig.title}
           </h1>
           <p className="hidden md:block text-slate-400 text-[8px] font-bold tracking-widest uppercase mt-0.5">

@@ -12,7 +12,7 @@ export const ColorLegend = () => {
     ];
 
     return (
-        <div className="flex items-center gap-4 text-xs text-slate-500 mt-4">
+        <div className="flex items-center gap-4 text-xs text-slate-500">
             <span>Less</span>
             <div className="flex gap-1">
                 {levels.map((level, i) => (
