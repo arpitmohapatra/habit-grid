@@ -60,4 +60,31 @@
   .pb-safe {
     padding-bottom: env(safe-area-inset-bottom);
   }
+
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
+  .safe-area-bottom {
+    margin-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@layer base {
+  * {
+    @apply selection:bg-indigo-500/30 selection:text-indigo-900 dark:selection:bg-indigo-400/30 dark:selection:text-indigo-100;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button,
+  a {
+    @apply cursor-pointer touch-manipulation;
+  }
 }

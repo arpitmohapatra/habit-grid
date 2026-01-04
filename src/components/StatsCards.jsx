@@ -10,9 +10,9 @@ const StatCard = ({ title, value, icon: Icon, color, subtext }) => (
             <Icon size={20} className="md:w-7 md:h-7 text-white" />
         </div>
         <div>
-            <p className="text-slate-400 dark:text-slate-500 text-[8px] md:text-[10px] uppercase font-black tracking-[0.1em] mb-0.5 md:mb-1">{title}</p>
+            <p className="text-slate-400 dark:text-slate-500 text-xs md:text-xs uppercase font-black tracking-[0.1em] mb-0.5 md:mb-1">{title}</p>
             <div className="text-xl md:text-3xl font-black text-slate-800 dark:text-white leading-none">{value}</div>
-            {subtext && <p className="text-[8px] md:text-[10px] text-slate-400 dark:text-slate-500 mt-1 md:mt-1.5 font-medium">{subtext}</p>}
+            {subtext && <p className="text-xs md:text-xs text-slate-400 dark:text-slate-500 mt-1 md:mt-1.5 font-medium">{subtext}</p>}
         </div>
     </div>
 );

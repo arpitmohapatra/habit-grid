@@ -79,12 +79,12 @@ function AppContent() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 pb-24 md:pb-10 transition-colors duration-500">
       {/* Optimized Header - Ultra compact for web */}
-      <header className={`sticky top-0 z-40 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-700/50 px-4 py-1.5 md:px-8 md:py-2 flex justify-between items-center`}>
+      <header className={`sticky top-0 z-40 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-700/50 px-4 py-3 md:px-8 md:py-2 flex justify-between items-center transition-all duration-300`}>
         <div className="flex flex-col">
           <h1 className="text-lg md:text-xl font-black text-slate-800 dark:text-white tracking-tight leading-none truncate max-w-[150px] sm:max-w-none">
             {appConfig.title}
           </h1>
-          <p className="hidden md:block text-slate-400 text-[8px] font-bold tracking-widest uppercase mt-0.5">
+          <p className="hidden md:block text-slate-400 text-xs font-bold tracking-widest uppercase mt-0.5">
             {appConfig.subtitle}
           </p>
         </div>
@@ -94,7 +94,7 @@ function AppContent() {
           <button
             onClick={() => setActiveTab('daily')}
             className={clsx(
-              "px-4 py-1 rounded-md text-[11px] font-bold transition-all duration-300",
+              "px-4 py-1 rounded-md text-xs font-bold transition-all duration-300",
               activeTab === 'daily'
                 ? `${currentTheme.intensity.bg} text-white shadow-md`
                 : "text-slate-500"
@@ -105,7 +105,7 @@ function AppContent() {
           <button
             onClick={() => setActiveTab('grid')}
             className={clsx(
-              "px-4 py-1 rounded-md text-[11px] font-bold transition-all duration-300",
+              "px-4 py-1 rounded-md text-xs font-bold transition-all duration-300",
               activeTab === 'grid'
                 ? `${currentTheme.intensity.bg} text-white shadow-md`
                 : "text-slate-500"
@@ -120,19 +120,20 @@ function AppContent() {
           {updateAvailable && (
             <button
               onClick={handleUpdate}
-              className={`${currentTheme.intensity.bg} text-white text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1 animate-pulse shadow-lg`}
+              className={`${currentTheme.intensity.bg} text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 animate-pulse shadow-lg`}
             >
-              <Activity size={12} strokeWidth={3} />
+              <Activity size={14} strokeWidth={3} />
               <span>Update!</span>
             </button>
           )}
+
           <div className="relative">
             <button
               onClick={() => setShowThemePicker(!showThemePicker)}
-              className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-all duration-200 text-slate-600 dark:text-slate-300"
+              className="p-3 md:p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition-all duration-200 text-slate-600 dark:text-slate-300 active:scale-95 touch-manipulation"
               title="Theme Color"
             >
-              <Palette size={16} strokeWidth={2.5} />
+              <Palette size={20} className="md:w-4 md:h-4" strokeWidth={2.5} />
             </button>
             {showThemePicker && (
               <div className="absolute right-0 mt-2 p-2 bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl border border-slate-200 dark:border-slate-700 rounded-xl shadow-2xl z-50 flex gap-1.5 animate-in fade-in zoom-in-95 duration-200 origin-top-right">
@@ -152,12 +153,12 @@ function AppContent() {
           </div>
           <button
             onClick={setDarkMode}
-            className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-all duration-200 text-slate-600 dark:text-slate-300"
+            className="p-3 md:p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition-all duration-200 text-slate-600 dark:text-slate-300 active:scale-95 touch-manipulation"
           >
-            {darkMode ? <Sun size={16} strokeWidth={2.5} /> : <Moon size={16} strokeWidth={2.5} />}
+            {darkMode ? <Sun size={20} className="md:w-4 md:h-4" strokeWidth={2.5} /> : <Moon size={20} className="md:w-4 md:h-4" strokeWidth={2.5} />}
           </button>
-          <button className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-all duration-200 text-slate-600 dark:text-slate-300">
-            <Settings size={16} strokeWidth={2.5} />
+          <button className="p-3 md:p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition-all duration-200 text-slate-600 dark:text-slate-300 active:scale-95 touch-manipulation">
+            <Settings size={20} className="md:w-4 md:h-4" strokeWidth={2.5} />
           </button>
         </div>
       </header>
@@ -178,7 +179,7 @@ function AppContent() {
             style={{ height: 'calc(100vh - 125px)' }}
           >
             <div className="flex flex-col md:flex-row gap-1 justify-between items-start md:items-center mb-1 md:mb-2 px-2 pt-1 shrink-0">
-              <h2 className="text-[10px] md:text-sm font-black text-slate-800 dark:text-white tracking-tight">
+              <h2 className="text-xs md:text-sm font-black text-slate-800 dark:text-white tracking-tight">
                 {new Date().getFullYear()} Achievement Matrix
               </h2>
               <ColorLegend />
@@ -196,7 +197,7 @@ function AppContent() {
           <button
             onClick={() => setActiveTab('daily')}
             className={clsx(
-              "flex-1 flex flex-col items-center gap-1 py-2 rounded-xl text-[10px] font-bold transition-all duration-300",
+              "flex-1 flex flex-col items-center gap-1 py-1.5 md:py-2 rounded-xl text-[11px] font-bold transition-all duration-300 active:scale-90",
               activeTab === 'daily'
                 ? `${currentTheme.intensity.bg} text-white shadow-lg`
                 : "text-slate-500 dark:text-slate-400"
@@ -208,7 +209,7 @@ function AppContent() {
           <button
             onClick={() => setActiveTab('grid')}
             className={clsx(
-              "flex-1 flex flex-col items-center gap-1 py-2 rounded-xl text-[10px] font-bold transition-all duration-300",
+              "flex-1 flex flex-col items-center gap-1 py-1.5 md:py-2 rounded-xl text-[11px] font-bold transition-all duration-300 active:scale-90",
               activeTab === 'grid'
                 ? `${currentTheme.intensity.bg} text-white shadow-lg`
                 : "text-slate-500 dark:text-slate-400"

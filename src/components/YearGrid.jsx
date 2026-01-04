@@ -53,14 +53,14 @@ export const YearGrid = ({ selectedDate, onDateSelect }) => {
                             onClick={() => !isFuture && onDateSelect(day)}
                             title={format(day, 'MMM d, yyyy')}
                             className={clsx(
-                                "aspect-square w-[3.4vw] sm:w-[3vw] md:w-[2.8vw] lg:w-[2.8vh] max-w-[30px] min-w-[12px] rounded-[1px] sm:rounded-sm transition-colors duration-200 relative flex items-center justify-center",
+                                "aspect-square w-[4.2vw] sm:w-[3vw] md:w-[2.8vw] lg:w-[2.8vh] max-w-[30px] min-w-[14px] rounded-[1px] sm:rounded-sm transition-colors duration-200 relative flex items-center justify-center",
                                 !isFuture ? "cursor-pointer" : "cursor-default",
                                 getIntensityColor(day),
                                 (isToday || isSelected) && "ring-1 sm:ring-2 ring-slate-400 dark:ring-slate-500 z-10"
                             )}
                         >
                             <span className={clsx(
-                                "text-[7px] sm:text-[9px] md:text-[10px] font-bold select-none",
+                                "text-[10px] sm:text-[10px] md:text-[11px] font-bold select-none",
                                 isFuture ? "text-slate-400 dark:text-slate-600" : "text-slate-700 dark:text-slate-200",
                                 (isToday || isSelected) && "text-slate-900 dark:text-white font-black"
                             )}>
